@@ -1,39 +1,76 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const TouchButton: React.FC = () => {
-  const [isPressed, setIsPressed] = useState(false);
+  const [isPressedArray, setIsPressedArray] = useState<boolean[]>([]);
+  const [buttonsCount, setButtonsCount] = useState(0);
 
-  const handleTouchStart = () => {
-    setIsPressed(true);
+  // Button dimensions
+  const buttonSize = 25;
+  const buttonMargin = 1;
+  const buttonTotalSize = buttonSize + buttonMargin * 2;
+
+  useEffect(() => {
+    // Calculate the number of buttons needed based on screen size
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+    const buttonsPerRow = Math.floor(screenWidth / buttonTotalSize);
+    const rows = Math.floor(screenHeight / buttonTotalSize);
+    const totalButtons = buttonsPerRow * rows;
+
+    setButtonsCount(totalButtons);
+    setIsPressedArray(Array(totalButtons).fill(false));
+  }, []);
+
+  const handleTouchStart = (index: number) => {
+    setIsPressedArray(prevState => {
+      const newState = [...prevState];
+      newState[index] = true;
+      return newState;
+    });
   };
 
-  const handleTouchEnd = () => {
-    setIsPressed(false);
+  const handleTouchEnd = (index: number) => {
+    setIsPressedArray(prevState => {
+      const newState = [...prevState];
+      newState[index] = false;
+      return newState;
+    });
   };
 
   return (
-    <button
-      style={{
-        width: '25px',
-        height: '25px',
-        backgroundColor: isPressed ? 'blue' : 'lightgray',
-        border: 'none',
-        borderRadius: '5px',
-        cursor: 'pointer',
-        color: isPressed ? 'white' : 'black',
-        fontSize: '16px',
-        transition: 'background-color 0.2s ease',
-      }}
-      onTouchStart={handleTouchStart}
-
-      // Uncomment the following piece of code to make it work without a touchscreen
-      // Note that this will make it so the touchscreen function is bugged
-      // In summary, enable the following line for testing but ensure it is commented out when committing
-      // onClick={() => setIsPressed(prev => !prev)} // Toggle color on click
-    >
-    </button>
+    <div style={{ display: 'flex', flexWrap: 'wrap', width: '100vw', height: '100vh' }}>
+      {Array.from({ length: buttonsCount }).map((_, index) => (
+        <button
+          key={index}
+          style={{
+            width: `${buttonSize}px`,
+            height: `${buttonSize}px`,
+            backgroundColor: isPressedArray[index] ? 'blue' : 'lightgray',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            color: isPressedArray[index] ? 'white' : 'black',
+            fontSize: '16px',
+            transition: 'background-color 0.2s ease',
+            margin: `${buttonMargin}px`,
+          }}
+          onTouchStart={() => handleTouchStart(index)}
+          onTouchEnd={() => handleTouchEnd(index)}
+          
+          onClick={() => {
+            setIsPressedArray(prevState => {
+              const newState = [...prevState];
+              newState[index] = !newState[index];
+              return newState;
+            });
+          }}
+        >
+        </button>
+      ))}
+    </div>
   );
 };
 

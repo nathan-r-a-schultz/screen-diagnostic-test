@@ -11,7 +11,24 @@ const TouchButton: React.FC = () => {
   const buttonMargin = 1;
   const buttonTotalSize = buttonSize + buttonMargin * 2;
 
+  const enterFullscreen = () => {
+    const element = document.documentElement; // Target the whole document
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+    } 
+    // else if (element.webkitRequestFullscreen) {
+    //   element.webkitRequestFullscreen(); // Safari
+    // } else if (element.msRequestFullscreen) {
+    //   element.msRequestFullscreen(); // IE/Edge
+    // } else if (element.mozRequestFullScreen) {
+    //   element.mozRequestFullScreen(); // Firefox
+    // }
+  };
+
   useEffect(() => {
+
+    enterFullscreen();
+
     // Calculate the number of buttons needed based on screen size
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight;
@@ -41,7 +58,7 @@ const TouchButton: React.FC = () => {
   };
 
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', width: '100vw', height: '100vh' }}>
+    <div className='touchbutton-main-div' style={{ display: 'flex', flexWrap: 'wrap', width: '100vw', height: '100vh' }}>
       {Array.from({ length: buttonsCount }).map((_, index) => (
         <button
           key={index}

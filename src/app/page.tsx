@@ -1,18 +1,25 @@
-import Image from "next/image";
-import Navbar from "../components/navbar"
+"use client";
+
+import React, { useState } from 'react';
 import TouchButton from "../components/touchbutton"
 
-export default function Home() {
+const Page: React.FC = () => {
+  const [showTouchButton, setShowTouchButton] = useState(false);
+
+  // Toggle the visibility of the TouchButton
+  const handleToggleTouchButton = () => {
+    setShowTouchButton(prev => !prev);
+  };
+
   return (
     <div>
-      {/* <Navbar />
+      <button onClick={handleToggleTouchButton}>
+        {showTouchButton ? 'Hide TouchButton' : 'Show TouchButton'}
+      </button>
 
-      <div>
-        <p>This is a test paragraph!</p>
-      </div> */}
-
-      <TouchButton />
-
+      {showTouchButton && <TouchButton />}
     </div>
   );
-}
+};
+
+export default Page;

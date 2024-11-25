@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Screen Diagnostic Application
+
+An online screen diagnostic tool designed to help users detect **dead spots** or **dead pixels** on their devices. This application is primarily built for **touch-screen devices** and allows users to easily identify if their screen is broken or malfunctioning.
+
+## Features
+
+- **Dead Spot Detection**: Test your touch screen for unresponsive areas.
+- **Dead Pixel Identification**: Check for non-functional pixels across the screen.
+- **Simple and Intuitive Interface**: User-friendly design for quick and easy diagnostics.
+- **Cross-Platform Support**: Works on any browser-enabled touch-screen device.
+- **No Installation Required**: Fully online application, no downloads needed.
+
+## How It Works
+
+1. Open the application in a browser on your touch-screen device.
+2. The screen will display a grid of buttons or interactive areas.
+3. Touch each area to check its responsiveness.
+4. If any section of the grid doesn't respond, it indicates a **dead spot** or issue with your touch functionality.
+5. Observe the screen for any **dead pixels**—they will appear as permanently lit or unlit spots.
+
+## Deployment
+
+The application is built using [Next.js](https://nextjs.org/) and deployed on [Vercel](https://vercel.com/) for fast and reliable performance.
+
+- **Frontend Framework**: Next.js
+- **Deployment Platform**: Vercel
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to use the application:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Visit the application**: Open the deployed app in your device's browser.
+2. **Full-Screen Mode**: Ensure the application is in fullscreen mode for the best experience.
+3. **Perform the Test**:
+   - Interact with all areas of the screen.
+   - Look for any unresponsive or visually faulty spots.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **React**: For building the interactive components.
+- **Next.js**: To create a performant and scalable web application.
+- **Vercel**: For seamless deployment and hosting.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Why Use This Application?
 
-## Learn More
+This diagnostic tool is essential for:
+- **Troubleshooting**: Quickly detect issues with your touch-screen functionality.
+- **Second-Hand Device Buyers**: Verify the screen condition before purchasing.
+- **Repair Evaluation**: Determine if your device requires screen repairs or replacements.
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Contributions are welcome! If you have suggestions or improvements, feel free to fork this repository and create a pull request.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Author
+
+Developed by **Maharshii**, a freelance web developer with expertise in **Next.js** and modern web technologies. If you find this tool helpful, feel free to share or reach out for collaboration opportunities.
+
+---
+
+### Acknowledgements
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Vercel Hosting](https://vercel.com/)
